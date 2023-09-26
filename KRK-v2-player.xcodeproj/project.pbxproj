@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		431CB7B72AC2EF7C00038608 /* KRK_Common in Frameworks */ = {isa = PBXBuildFile; productRef = 431CB7B62AC2EF7C00038608 /* KRK_Common */; };
 		431D60782ABED0B2001FB08A /* KRK_v2_playerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431D60772ABED0B2001FB08A /* KRK_v2_playerApp.swift */; };
 		431D607A2ABED0B2001FB08A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431D60792ABED0B2001FB08A /* ContentView.swift */; };
 		431D607C2ABED0B4001FB08A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 431D607B2ABED0B4001FB08A /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				431CB7B72AC2EF7C00038608 /* KRK_Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +90,9 @@
 			dependencies = (
 			);
 			name = "KRK-v2-player";
+			packageProductDependencies = (
+				431CB7B62AC2EF7C00038608 /* KRK_Common */,
+			);
 			productName = "KRK-v2-player";
 			productReference = 431D60742ABED0B2001FB08A /* KRK-v2-player.app */;
 			productType = "com.apple.product-type.application";
@@ -116,6 +121,9 @@
 				Base,
 			);
 			mainGroup = 431D606B2ABED0B2001FB08A;
+			packageReferences = (
+				431CB7B52AC2EF7C00038608 /* XCLocalSwiftPackageReference "CustomPackages/KRK_Common" */,
+			);
 			productRefGroup = 431D60752ABED0B2001FB08A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -362,6 +370,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		431CB7B52AC2EF7C00038608 /* XCLocalSwiftPackageReference "CustomPackages/KRK_Common" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = CustomPackages/KRK_Common;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		431CB7B62AC2EF7C00038608 /* KRK_Common */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KRK_Common;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 431D606C2ABED0B2001FB08A /* Project object */;
 }
