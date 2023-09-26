@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:KRK-v2-player.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:KRK-v2-controller.xcodeproj">
+   </FileRef>
+</Workspace>
