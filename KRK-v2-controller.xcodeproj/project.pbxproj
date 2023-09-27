@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,9 @@
 		431CB7A42AC2EC9200038608 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CB7A32AC2EC9200038608 /* ContentView.swift */; };
 		431CB7A62AC2EC9300038608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 431CB7A52AC2EC9300038608 /* Assets.xcassets */; };
 		431CB7A92AC2EC9300038608 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 431CB7A82AC2EC9300038608 /* Preview Assets.xcassets */; };
+		4336B8632AC437D0009D8FA3 /* StartUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336B8622AC437D0009D8FA3 /* StartUpView.swift */; };
+		4336B8652AC439B0009D8FA3 /* StartUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336B8642AC439B0009D8FA3 /* StartUpViewModel.swift */; };
+		4336B8682AC43A37009D8FA3 /* KRK_Common in Frameworks */ = {isa = PBXBuildFile; productRef = 4336B8672AC43A37009D8FA3 /* KRK_Common */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,8 @@
 		431CB7A32AC2EC9200038608 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		431CB7A52AC2EC9300038608 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		431CB7A82AC2EC9300038608 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4336B8622AC437D0009D8FA3 /* StartUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpView.swift; sourceTree = "<group>"; };
+		4336B8642AC439B0009D8FA3 /* StartUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4336B8682AC43A37009D8FA3 /* KRK_Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +57,7 @@
 		431CB7A02AC2EC9200038608 /* KRK-v2-controller */ = {
 			isa = PBXGroup;
 			children = (
+				4336B8612AC437B1009D8FA3 /* Start Up Scene */,
 				431CB7A12AC2EC9200038608 /* KRK_v2_controllerApp.swift */,
 				431CB7A32AC2EC9200038608 /* ContentView.swift */,
 				431CB7A52AC2EC9300038608 /* Assets.xcassets */,
@@ -65,6 +72,15 @@
 				431CB7A82AC2EC9300038608 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4336B8612AC437B1009D8FA3 /* Start Up Scene */ = {
+			isa = PBXGroup;
+			children = (
+				4336B8622AC437D0009D8FA3 /* StartUpView.swift */,
+				4336B8642AC439B0009D8FA3 /* StartUpViewModel.swift */,
+			);
+			path = "Start Up Scene";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +99,9 @@
 			dependencies = (
 			);
 			name = "KRK-v2-controller";
+			packageProductDependencies = (
+				4336B8672AC43A37009D8FA3 /* KRK_Common */,
+			);
 			productName = "KRK-v2-controller";
 			productReference = 431CB79E2AC2EC9200038608 /* KRK-v2-controller.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +130,9 @@
 				Base,
 			);
 			mainGroup = 431CB7952AC2EC9200038608;
+			packageReferences = (
+				4336B8662AC43A37009D8FA3 /* XCLocalSwiftPackageReference "CustomPackages/KRK_Common" */,
+			);
 			productRefGroup = 431CB79F2AC2EC9200038608 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,7 +159,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4336B8652AC439B0009D8FA3 /* StartUpViewModel.swift in Sources */,
 				431CB7A42AC2EC9200038608 /* ContentView.swift in Sources */,
+				4336B8632AC437D0009D8FA3 /* StartUpView.swift in Sources */,
 				431CB7A22AC2EC9200038608 /* KRK_v2_controllerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +372,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		4336B8662AC43A37009D8FA3 /* XCLocalSwiftPackageReference "CustomPackages/KRK_Common" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = CustomPackages/KRK_Common;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4336B8672AC43A37009D8FA3 /* KRK_Common */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KRK_Common;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 431CB7962AC2EC9200038608 /* Project object */;
 }
