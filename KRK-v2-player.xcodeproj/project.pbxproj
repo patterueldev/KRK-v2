@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -122,7 +122,6 @@
 			);
 			mainGroup = 431D606B2ABED0B2001FB08A;
 			packageReferences = (
-				431CB7B52AC2EF7C00038608 /* XCLocalSwiftPackageReference "CustomPackages/KRK_Common" */,
 			);
 			productRefGroup = 431D60752ABED0B2001FB08A /* Products */;
 			projectDirPath = "";
@@ -370,13 +369,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		431CB7B52AC2EF7C00038608 /* XCLocalSwiftPackageReference "CustomPackages/KRK_Common" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = CustomPackages/KRK_Common;
-		};
-/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		431CB7B62AC2EF7C00038608 /* KRK_Common */ = {

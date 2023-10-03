@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "KRK_Common",
+    name: "KRK_APICommon",
     platforms: [
         .iOS(.v16),
         .macOS(.v13),
@@ -13,16 +13,21 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "KRK_Common",
-            targets: ["KRK_Common"]),
+            name: "KRK_APICommon",
+            targets: ["KRK_APICommon"]),
+    ],
+    dependencies: [
+        .package(name: "KRK_Common", path: "../KRK_Common")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "KRK_Common"),
+            name: "KRK_APICommon",
+            dependencies: ["KRK_Common"]
+        ),
         .testTarget(
-            name: "KRK_CommonTests",
-            dependencies: ["KRK_Common"]),
+            name: "KRK_APICommonTests",
+            dependencies: ["KRK_APICommon"]),
     ]
 )

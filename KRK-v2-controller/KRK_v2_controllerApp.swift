@@ -6,12 +6,25 @@
 //
 
 import SwiftUI
+import KRK_Common
+import KRK_APICommon
 
 @main
 struct KRK_v2_controllerApp: App {
+    let dependencyManager: DependencyManager
+    
+    init() {
+        self.dependencyManager = KRKCommon.buildDependencyManager()
+        KRKAPI.updateDependencies(manager: self.dependencyManager)
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            StartUpView(
+                viewModel: DefaultStartUpViewModel(
+                    dependencyManager: dependencyManager
+                )
+            )
         }
     }
 }

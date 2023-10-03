@@ -4,25 +4,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "KRK_Common",
-    platforms: [
-        .iOS(.v16),
-        .macOS(.v13),
-        .tvOS(.v16)
-    ],
+    name: "KRK_PlayerCore",
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "KRK_Common",
-            targets: ["KRK_Common"]),
+            name: "KRK_PlayerCore",
+            targets: ["KRK_PlayerCore"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "KRK_Common"),
+            name: "KRK_PlayerCore"),
         .testTarget(
-            name: "KRK_CommonTests",
-            dependencies: ["KRK_Common"]),
+            name: "KRK_PlayerCoreTests",
+            dependencies: ["KRK_PlayerCore"]),
     ]
 )

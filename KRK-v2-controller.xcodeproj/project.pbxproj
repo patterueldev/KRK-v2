@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		430133B52AC9B65C00A6F967 /* KRK_ControllerCore in Frameworks */ = {isa = PBXBuildFile; productRef = 430133B42AC9B65C00A6F967 /* KRK_ControllerCore */; };
+		4319455C2AC9BD730018F744 /* KRK_APICommon in Frameworks */ = {isa = PBXBuildFile; productRef = 4319455B2AC9BD730018F744 /* KRK_APICommon */; };
+		431945642AC9C2C80018F744 /* KRK_ControllerCore in Frameworks */ = {isa = PBXBuildFile; productRef = 431945632AC9C2C80018F744 /* KRK_ControllerCore */; };
+		431945652AC9C5070018F744 /* ReservedSongsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431945612AC9C2B40018F744 /* ReservedSongsViewModel.swift */; };
+		431945662AC9C5070018F744 /* ReservedSongsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431945602AC9C2B40018F744 /* ReservedSongsView.swift */; };
 		431CB7A22AC2EC9200038608 /* KRK_v2_controllerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CB7A12AC2EC9200038608 /* KRK_v2_controllerApp.swift */; };
 		431CB7A42AC2EC9200038608 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CB7A32AC2EC9200038608 /* ContentView.swift */; };
 		431CB7A62AC2EC9300038608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 431CB7A52AC2EC9300038608 /* Assets.xcassets */; };
@@ -17,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		430C0D1E2ACB94F5008583B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		431945602AC9C2B40018F744 /* ReservedSongsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservedSongsView.swift; sourceTree = "<group>"; };
+		431945612AC9C2B40018F744 /* ReservedSongsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservedSongsViewModel.swift; sourceTree = "<group>"; };
 		431CB79E2AC2EC9200038608 /* KRK-v2-controller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KRK-v2-controller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		431CB7A12AC2EC9200038608 /* KRK_v2_controllerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRK_v2_controllerApp.swift; sourceTree = "<group>"; };
 		431CB7A32AC2EC9200038608 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -31,13 +39,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4319455C2AC9BD730018F744 /* KRK_APICommon in Frameworks */,
+				431945642AC9C2C80018F744 /* KRK_ControllerCore in Frameworks */,
 				4336B8682AC43A37009D8FA3 /* KRK_Common in Frameworks */,
+				430133B52AC9B65C00A6F967 /* KRK_ControllerCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4319455F2AC9C2B40018F744 /* Reserved Songs */ = {
+			isa = PBXGroup;
+			children = (
+				431945602AC9C2B40018F744 /* ReservedSongsView.swift */,
+				431945612AC9C2B40018F744 /* ReservedSongsViewModel.swift */,
+			);
+			path = "Reserved Songs";
+			sourceTree = "<group>";
+		};
 		431CB7952AC2EC9200038608 = {
 			isa = PBXGroup;
 			children = (
@@ -58,10 +78,12 @@
 			isa = PBXGroup;
 			children = (
 				4336B8612AC437B1009D8FA3 /* Start Up Scene */,
+				4319455F2AC9C2B40018F744 /* Reserved Songs */,
 				431CB7A12AC2EC9200038608 /* KRK_v2_controllerApp.swift */,
 				431CB7A32AC2EC9200038608 /* ContentView.swift */,
 				431CB7A52AC2EC9300038608 /* Assets.xcassets */,
 				431CB7A72AC2EC9300038608 /* Preview Content */,
+				430C0D1E2ACB94F5008583B2 /* Info.plist */,
 			);
 			path = "KRK-v2-controller";
 			sourceTree = "<group>";
@@ -101,6 +123,9 @@
 			name = "KRK-v2-controller";
 			packageProductDependencies = (
 				4336B8672AC43A37009D8FA3 /* KRK_Common */,
+				430133B42AC9B65C00A6F967 /* KRK_ControllerCore */,
+				4319455B2AC9BD730018F744 /* KRK_APICommon */,
+				431945632AC9C2C80018F744 /* KRK_ControllerCore */,
 			);
 			productName = "KRK-v2-controller";
 			productReference = 431CB79E2AC2EC9200038608 /* KRK-v2-controller.app */;
@@ -131,7 +156,8 @@
 			);
 			mainGroup = 431CB7952AC2EC9200038608;
 			packageReferences = (
-				4336B8662AC43A37009D8FA3 /* XCLocalSwiftPackageReference "CustomPackages/KRK_Common" */,
+				4319455A2AC9BD720018F744 /* XCLocalSwiftPackageReference "CustomPackages/KRK_APICommon" */,
+				431945622AC9C2C80018F744 /* XCLocalSwiftPackageReference "CustomPackages/KRK_ControllerCore" */,
 			);
 			productRefGroup = 431CB79F2AC2EC9200038608 /* Products */;
 			projectDirPath = "";
@@ -160,9 +186,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4336B8652AC439B0009D8FA3 /* StartUpViewModel.swift in Sources */,
+				431945662AC9C5070018F744 /* ReservedSongsView.swift in Sources */,
 				431CB7A42AC2EC9200038608 /* ContentView.swift in Sources */,
 				4336B8632AC437D0009D8FA3 /* StartUpView.swift in Sources */,
 				431CB7A22AC2EC9200038608 /* KRK_v2_controllerApp.swift in Sources */,
+				431945652AC9C5070018F744 /* ReservedSongsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +327,7 @@
 				DEVELOPMENT_TEAM = 2ZL598ZSDC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "KRK-v2-controller/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "KRK Controller";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -330,6 +359,7 @@
 				DEVELOPMENT_TEAM = 2ZL598ZSDC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "KRK-v2-controller/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "KRK Controller";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -374,13 +404,29 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		4336B8662AC43A37009D8FA3 /* XCLocalSwiftPackageReference "CustomPackages/KRK_Common" */ = {
+		4319455A2AC9BD720018F744 /* XCLocalSwiftPackageReference "CustomPackages/KRK_APICommon" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = CustomPackages/KRK_Common;
+			relativePath = CustomPackages/KRK_APICommon;
+		};
+		431945622AC9C2C80018F744 /* XCLocalSwiftPackageReference "CustomPackages/KRK_ControllerCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = CustomPackages/KRK_ControllerCore;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		430133B42AC9B65C00A6F967 /* KRK_ControllerCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KRK_ControllerCore;
+		};
+		4319455B2AC9BD730018F744 /* KRK_APICommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KRK_APICommon;
+		};
+		431945632AC9C2C80018F744 /* KRK_ControllerCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KRK_ControllerCore;
+		};
 		4336B8672AC43A37009D8FA3 /* KRK_Common */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = KRK_Common;

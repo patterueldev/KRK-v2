@@ -6,13 +6,42 @@
 //
 
 import SwiftUI
+import KRK_Common
 
-struct StartUpView: View {
+struct StartUpView<ViewModel: StartUpViewModel>: View {
+    @ObservedObject var viewModel: ViewModel
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                Text(viewModel.message)
+                if case .disconnected = viewModel.status {
+                    Button("Retry") {
+                        viewModel.establishConnection()
+                    }.frame(maxWidth: .infinity)
+                    Button("Enter Host and Port") {
+                        // TODO: will open a modal
+                    }
+                    Button("Enter URL") {
+                        // TODO: will open a modal
+                    }
+                } else {
+                    ProgressView()
+                }
+            }
+            .navigationDestination(isPresented: $viewModel.navigatesToReservations) {
+                ReservedSongsView()
+            }
+        }
     }
 }
 
 #Preview {
-    StartUpView()
+    let dependencyManager = KRKCommon.previewDependencyManager()
+    let viewModel = DefaultStartUpViewModel(dependencyManager: dependencyManager)
+    return StartUpView(viewModel: viewModel)
 }

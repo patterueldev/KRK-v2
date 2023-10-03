@@ -8,7 +8,11 @@
 import Foundation
 import Network
 
-class NetworkDiscoveryManager: NSObject {
+protocol NetworkDiscoveryManager {
+    func discoverHost() async throws -> URL
+}
+
+class DefaultNetworkDiscoveryManager: NSObject, NetworkDiscoveryManager {
     lazy var browser: NetServiceBrowser = {
         let b = NetServiceBrowser()
         b.delegate = self
@@ -16,21 +20,25 @@ class NetworkDiscoveryManager: NSObject {
     }()
     
     var serviceFound: NetService?
-    
-    override init() {
-        super.init()
-        
-        print("init")
-        self.discover()
-    }
+    private var continuation: CheckedContinuation<URL, Error>?
     
     func discover() {
         print("discover")
         browser.searchForServices(ofType: "_http._tcp", inDomain: "local")
     }
+    
+    // MARK: - NetworkDiscoveryManager
+    func discoverHost() async throws -> URL {
+        return try await withCheckedThrowingContinuation { continuation in
+            self.continuation = continuation
+            DispatchQueue.main.async {
+                self.discover()
+            }
+        }
+    }
 }
 
-extension NetworkDiscoveryManager: NetServiceBrowserDelegate {
+extension DefaultNetworkDiscoveryManager: NetServiceBrowserDelegate {
     func netServiceBrowserWillSearch(_ browser: NetServiceBrowser) {
         print("netServiceBrowserWillSearch")
     }
@@ -40,18 +48,21 @@ extension NetworkDiscoveryManager: NetServiceBrowserDelegate {
     }
     
     func netServiceBrowser(_ browser: NetServiceBrowser, didNotSearch errorDict: [String : NSNumber]) {
-        print("didNotSearch")
+        print("netServiceBrowserDidNotSearch")
         print(errorDict)
+        let message = errorDict.reduce("") { (result, dict) -> String in
+            return result + "\(dict.key): \(dict.value)\n"
+        }
+        continuation?.resume(throwing: NSError(domain: "NetworkDiscoveryManager", code: 0, userInfo: [NSLocalizedDescriptionKey: message]))
     }
     
     func netServiceBrowser(_ browser: NetServiceBrowser, didFindDomain domainString: String, moreComing: Bool) {
-        print("didFindDomain")
+        print("netServiceBrowserDidFindDomain")
         print(domainString)
-    
     }
     
     func netServiceBrowser(_ browser: NetServiceBrowser, didFind service: NetService, moreComing: Bool) {
-        print("didFind")
+        print("netServiceBrowserDidFindService")
         print(service)
         let msg = """
         Name: \(service.name)
@@ -72,15 +83,15 @@ extension NetworkDiscoveryManager: NetServiceBrowserDelegate {
     }
     
     func netServiceBrowser(_ browser: NetServiceBrowser, didRemoveDomain domainString: String, moreComing: Bool) {
-        print("didRemoveDomain")
+        print("netServiceBrowserDidRemoveDomain")
     }
     
     func netServiceBrowser(_ browser: NetServiceBrowser, didRemove service: NetService, moreComing: Bool) {
-        print("didRemove")
+        print("netServiceBrowserDidRemoveService")
     }
 }
 
-extension NetworkDiscoveryManager: NetServiceDelegate {
+extension DefaultNetworkDiscoveryManager: NetServiceDelegate {
     func netServiceWillPublish(_ sender: NetService) {
         print("netServiceWillPublish")
     }
@@ -105,26 +116,24 @@ extension NetworkDiscoveryManager: NetServiceDelegate {
         """
         print(msg)
         
-        if let host = sender.hostName {
-            let port = sender.port
-            let url = URL(string: "http://\(host):\(port)")
-            print(url)
-            URLSession.shared.dataTask(with: url!) { data, response, error in
-                if let error = error {
-                    print(error)
-                }
-                if let data = data {
-                    print(data)
-                    let str = String(decoding: data, as: UTF8.self)
-                    print(str)
-                }
-            }.resume()
-          }
+        guard let host = sender.hostName else {
+            continuation?.resume(throwing: NSError(domain: "KRK-v2", code: 1, userInfo: [NSLocalizedDescriptionKey: "Unable to resolve host."]))
+            return
+        }
      
+        
+        let port = sender.port
+        guard let url = URL(string: "http://\(host):\(port)") else {
+            continuation?.resume(throwing: NSError(domain: "KRK-v2", code: 1, userInfo: [NSLocalizedDescriptionKey: "Unable to resolve host."]))
+            return
+        }
+        continuation?.resume(returning: url)
     }
+    
     func netService(_ sender: NetService, didNotResolve errorDict: [String : NSNumber]) {
         print("didNotResolve")
         print(errorDict)
+        continuation?.resume(throwing: NSError(domain: "KRK-v2", code: 1, userInfo: [NSLocalizedDescriptionKey: "Unable to resolve host."]))
     }
     func netServiceDidStop(_ sender: NetService) {
         print("netServiceDidStop")

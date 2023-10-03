@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "E3C2086E-DADB-4030-A75D-04B296E6FD0F"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3C24E957-5641-4ED1-AC55-DF3CFB746F7C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CustomPackages/KRK_APICommon/Sources/KRK_API/Common/NetworkDiscoveryManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3C24E957-5641-4ED1-AC55-DF3CFB746F7C - f327cbc5fc3b206e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KRK_APICommon.DefaultNetworkDiscoveryManager.init() -&gt; KRK_APICommon.DefaultNetworkDiscoveryManager"
+                  moduleName = "KRK-v2-controller"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pat/Coding/KRK-v2/CustomPackages/KRK_APICommon/Sources/KRK_API/Common/NetworkDiscoveryManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "3C24E957-5641-4ED1-AC55-DF3CFB746F7C - 8412c8b3a8454465"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KRK_APICommon.DefaultNetworkDiscoveryManager.discover() -&gt; ()"
+                  moduleName = "KRK-v2-controller"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pat/Coding/KRK-v2/CustomPackages/KRK_APICommon/Sources/KRK_API/Common/NetworkDiscoveryManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
